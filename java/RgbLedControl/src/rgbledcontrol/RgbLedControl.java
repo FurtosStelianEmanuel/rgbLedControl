@@ -1,19 +1,34 @@
 package rgbledcontrol;
 
+import communicationbridge.InitializingPort;
+import communicationbridge.SerialPortReader;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JFrame;
-import java.awt.*;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
-import javax.imageio.ImageIO;
-import userinterace.MainForm;
+import jssc.SerialPort;
+import jssc.SerialPortException;
+import jssc.SerialPortList;
 
+/**
+ *
+ * @author Manel
+ */
 public class RgbLedControl {
 
-    public static void main(String[] args) {
-        MainForm mainForm = new MainForm();
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) throws InterruptedException {
+        InitializingPort initializingPort = new InitializingPort();
 
-        mainForm.setVisible(true);
+        for(int i=0;i<10;i++){
+            initializingPort.write("ceva\n");
+            Thread.sleep(1000);
+        }
+        
+        
+        JFrame jFrame = new JFrame();
+        jFrame.setVisible(true);
     }
-    
+
 }
